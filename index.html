@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aegis - Proctored Online Examination Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #0b0f19; --surface: #111827; --surface-border: #1f293d; --accent: #6366f1; --accent-glow: rgba(99, 102, 241, 0.2); --text: #f9fafb; --muted: #9ca3af; --success: #10b981; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; }
+    .header { padding: 1rem 2rem; border-bottom: 1px solid var(--surface-border); display: flex; justify-content: space-between; align-items: center; }
+    .badge { background: var(--accent-glow); color: var(--accent); padding: 0.25rem 0.6rem; border-radius: 6px; font-weight: 700; font-size: 0.8rem; }
+    .main { max-width: 1200px; margin: 0 auto; padding: 2.5rem 2rem; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+    .card { background: var(--surface); border: 1px solid var(--surface-border); border-radius: 12px; padding: 2rem; }
+    .card h2 { font-size: 1.3rem; margin-bottom: 0.75rem; }
+    .form-group { margin-bottom: 1rem; }
+    label { display: block; font-size: 0.82rem; color: var(--muted); margin-bottom: 0.35rem; }
+    input, select, textarea { width: 100%; padding: 0.7rem; background: #0b0f19; border: 1px solid var(--surface-border); color: #fff; border-radius: 8px; font-family: inherit; }
+    .btn { background: var(--accent); color: #fff; border: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 700; cursor: pointer; }
+    .question-item { background: #0b0f19; border: 1px solid var(--surface-border); padding: 1rem; border-radius: 8px; margin-bottom: 0.75rem; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div style="display:flex; align-items:center; gap:0.5rem;">
+      <span style="font-size:1.5rem;">🛡️</span>
+      <b style="font-size:1.2rem;">Aegis Examination OS</b>
+      <span class="badge">Biometric & Proctor Ready</span>
+    </div>
+    <div>
+      <span style="color:var(--muted); font-size:0.85rem;">Session: Student ST-902 (Chanakya)</span>
+    </div>
+  </header>
+
+  <main class="main">
+    <h1>Examination Authoring & Student Authentication</h1>
+    <p style="color:var(--muted); margin-top:0.35rem;">Manage accredited question banks and student verification credentials.</p>
+
+    <div class="grid">
+      <!-- Student Verification & Exam Launch -->
+      <div class="card">
+        <h2>1. Student Authentication & Device Check</h2>
+        <div style="background: #0b0f19; border: 1px dashed var(--surface-border); border-radius: 8px; padding: 1.25rem; margin-bottom: 1.25rem;">
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+            <span>Webcam & Microphone Feed</span>
+            <span style="color:var(--success); font-weight:700;">✓ Active</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+            <span>Full-Screen Browser Lockdown</span>
+            <span style="color:var(--success); font-weight:700;">✓ Verified</span>
+          </div>
+          <div style="display:flex; justify-content:space-between;">
+            <span>Student Identity Card Scan</span>
+            <span style="color:var(--success); font-weight:700;">✓ Matched (99.4%)</span>
+          </div>
+        </div>
+        <a href="exam.html" class="btn" style="display:inline-block; text-decoration:none; text-align:center; width:100%;">Proceed to Timed Test Engine →</a>
+      </div>
+
+      <!-- Instructor Exam & Question Bank Builder -->
+      <div class="card">
+        <h2>2. Instructor Question Bank Builder</h2>
+        <div class="form-group">
+          <label>Question Prompt</label>
+          <input type="text" value="What is the time complexity of lookup in a balanced AVL tree?">
+        </div>
+        <div class="form-group">
+          <label>Options (Comma-separated)</label>
+          <input type="text" value="O(1), O(log n), O(n), O(n log n)">
+        </div>
+        <div class="form-group">
+          <label>Correct Answer & Weight</label>
+          <input type="text" value="O(log n) · 2 Marks">
+        </div>
+        <button class="btn" style="background:#1f293d;">+ Save to Question Bank</button>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
