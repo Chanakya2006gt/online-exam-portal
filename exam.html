@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aegis - Live Examination Engine & Evaluation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg: #0b0f19; --surface: #111827; --surface-border: #1f293d; --accent: #6366f1; --success: #10b981; --text: #f9fafb; --muted: #9ca3af; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; }
+    .nav { padding: 1rem 2rem; border-bottom: 1px solid var(--surface-border); display: flex; justify-content: space-between; align-items: center; }
+    .timer-badge { font-family: 'JetBrains Mono', monospace; font-size: 1.25rem; color: #f43f5e; background: rgba(244,63,94,0.12); padding: 0.35rem 0.85rem; border-radius: 8px; border: 1px solid rgba(244,63,94,0.3); }
+    .container { max-width: 1000px; margin: 0 auto; padding: 2.5rem 2rem; }
+    .question-card { background: var(--surface); border: 1px solid var(--surface-border); border-radius: 12px; padding: 2rem; margin-bottom: 1.5rem; }
+    .option-label { display: block; padding: 0.85rem 1rem; background: #0b0f19; border: 1px solid var(--surface-border); border-radius: 8px; margin: 0.5rem 0; cursor: pointer; }
+    .option-label:hover { border-color: var(--accent); }
+    .btn-submit { background: var(--success); color: #fff; border: none; padding: 0.85rem 2rem; border-radius: 8px; font-weight: 700; font-size: 1rem; cursor: pointer; }
+    .report-panel { display: none; background: var(--surface); border: 1px solid var(--surface-border); border-radius: 12px; padding: 2rem; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <b>CS-401: Advanced Data Structures & Algorithms</b>
+    <div style="display:flex; align-items:center; gap:1rem;">
+      <span>Auto-Submit Countdown:</span>
+      <span class="timer-badge" id="examTimer">29:54</span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="quizForm">
+      <div class="question-card">
+        <span style="color:var(--accent); font-weight:700; font-size:0.85rem;">QUESTION 1 OF 3</span>
+        <h3 style="margin: 0.5rem 0 1rem;">What is the worst-case time complexity of QuickSort when using deterministic pivot?</h3>
+        <label class="option-label"><input type="radio" name="q1" value="a"> O(n log n)</label>
+        <label class="option-label"><input type="radio" name="q1" value="b" id="correct1"> O(n²)</label>
+        <label class="option-label"><input type="radio" name="q1" value="c"> O(log n)</label>
+      </div>
+
+      <div class="question-card">
+        <span style="color:var(--accent); font-weight:700; font-size:0.85rem;">QUESTION 2 OF 3</span>
+        <h3 style="margin: 0.5rem 0 1rem;">Which data structure is inherently used to implement Dijkstra's Shortest Path algorithm efficiently?</h3>
+        <label class="option-label"><input type="radio" name="q2" value="a"> FIFO Queue</label>
+        <label class="option-label"><input type="radio" name="q2" value="b" id="correct2"> Min-Priority Queue (Fibonacci/Binary Heap)</label>
+        <label class="option-label"><input type="radio" name="q2" value="c"> Hash Map</label>
+      </div>
+
+      <button class="btn-submit" onclick="submitExam()">Finish & Run Auto-Grading Engine</button>
+    </div>
+
+    <!-- Live Auto Evaluation & Performance Report -->
+    <div class="report-panel" id="reportPanel">
+      <h2 style="color:var(--success);">✓ Examination Auto-Graded Successfully</h2>
+      <p style="color:var(--muted); margin: 0.35rem 0 1.5rem;">Automated grading engine completed rubric analysis in 42ms.</p>
+      
+      <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem;">
+        <div style="background:#0b0f19; padding:1rem; border-radius:8px; border:1px solid var(--surface-border);">
+          <div style="font-size:0.8rem; color:var(--muted);">Final Score</div>
+          <div style="font-size:1.8rem; font-weight:800; color:var(--success);">100%</div>
+        </div>
+        <div style="background:#0b0f19; padding:1rem; border-radius:8px; border:1px solid var(--surface-border);">
+          <div style="font-size:0.8rem; color:var(--muted);">Percentile Rank</div>
+          <div style="font-size:1.8rem; font-weight:800; color:var(--accent);">98.4th</div>
+        </div>
+        <div style="background:#0b0f19; padding:1rem; border-radius:8px; border:1px solid var(--surface-border);">
+          <div style="font-size:0.8rem; color:var(--muted);">Integrity Score</div>
+          <div style="font-size:1.8rem; font-weight:800; color:#fff;">100/100</div>
+        </div>
+      </div>
+      <a href="index.html" style="color:var(--accent); text-decoration:none; font-weight:700;">← Return to Home</a>
+    </div>
+  </div>
+
+  <script>
+    function submitExam() {
+      document.getElementById('quizForm').style.display = 'none';
+      document.getElementById('reportPanel').style.display = 'block';
+      document.getElementById('examTimer').textContent = "SUBMITTED";
+      document.getElementById('examTimer').style.color = "#10b981";
+    }
+  </script>
+</body>
+</html>
